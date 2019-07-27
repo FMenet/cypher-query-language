@@ -1,0 +1,28 @@
+{
+  "fileTypes": ["graphql", "gql"],
+  "injectionSelector": "L:meta.type.object.graphql",
+  "patterns": [
+    {
+      "name": "cypherQuery",
+      "contentName": "meta.embedded.block.cypher",
+      "begin": "(@cypher).*?(statement).*?\"",
+      "beginCaptures": {
+        "1": {
+          "name": "entity.name.cypher.directive"
+        },
+	"2":{
+"name":"cypher.statement"
+}
+      },
+      "end": "\"",
+      "endCaptures": {
+        "0": {
+          "name": "punctuation.definition.string.template.end.cypher"
+        }
+      },
+      "patterns": [{ "include": "source.cypher" }]
+    }
+   
+  ],
+  "scopeName": "inline.cypher"
+}
